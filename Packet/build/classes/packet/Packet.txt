@@ -1,0 +1,101 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package packet;
+
+/**
+ *
+ * @author Fabrice Benoit
+ */
+public class Packet {
+    static int packetCount;
+    private int id;
+    private int packetSize;
+    private int timeArrive;
+    private int timeToDest;
+    private int timeOfCreation = timeToDest;
+
+    public int getTimeOfCreation() {
+        return timeOfCreation;
+    }
+
+    public void setTimeOfCreation(int timeOfCreation) {
+        this.timeOfCreation = timeOfCreation;
+    }
+    private Packet next;
+
+    public Packet getNext() {
+        return next;
+    }
+
+    public void setNext(Packet next) {
+        this.next = next;
+    }
+    public Packet(){   
+    }
+    
+    public Packet(int id){
+        this.id = id;
+    }
+    
+    public Packet(int id, int packetSize, int timeArrive, int timeToDest){
+      this.id = id;
+      this.packetSize = packetSize;
+      this.timeArrive = timeArrive;
+      this.timeToDest = timeToDest;
+    }
+public void decrementTimeToArrival(){
+    timeToDest--;
+}
+    public static int getPacketCount() {
+        return packetCount;
+    }
+
+    public static void setPacketCount(int packetCount) {
+        Packet.packetCount = packetCount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPacketSize() {
+        return packetSize;
+    }
+
+    public void setPacketSize(int packetSize) {
+        this.packetSize = packetSize;
+    }
+
+    public int getTimeArrive() {
+        return timeArrive;
+    }
+
+    public void setTimeArrive(int timeArrive) {
+        this.timeArrive = timeArrive;
+    }
+
+    public int getTimeToDest() {
+        return timeToDest;
+    }
+
+    public void setTimeToDest(int timeToDest) {
+        this.timeToDest = timeToDest;
+    }
+    
+    public String toString() {
+        String info = "";
+        info += "["+ id + ", " + timeArrive + ", " + timeToDest + "]";
+        return info;
+    }
+
+
+
+    
+}   
